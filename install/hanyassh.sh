@@ -1,9 +1,9 @@
 #!/bin/bash
-# Mod Has been updated by Prince 
+# Mod Has been updated by Debbyzeus 
 # 2022
 # ==================================================
 
-GitUser="syapik96"
+GitUser="Debbyzeus"
 #wget https://github.com/${GitUser}/
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -82,8 +82,8 @@ apt-get dist-upgrade -y
 # install wget and curl
 apt-get -y install wget curl
 
-# set time GMT +8
-ln -fs /usr/share/zoneinfo/Asia/Singapore /etc/localtime
+# set time GMT +1
+ln -fs /usr/share/zoneinfo/Africa/Lagos /etc/localtime
 
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
@@ -91,7 +91,7 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 # install
 apt-get install -y --fix-missing bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl neofetch git
 echo "clear" >> .profile
-echo "prince" >> .profile
+echo "debbyzeus" >> .profile
 
 # install webserver
 # install webserver
@@ -99,20 +99,20 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/syapik96/aws/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Debbyzeus/aws/main/nginx.conf"
 
 Index_port='81'
 IPADDR=$(wget -qO- icanhazip.com);
 # creating page download Openvpn config file
 mkdir -p /home/vps/public_html
-wget -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/syapik96/aws/main/lain2/index.html"
+wget -O /home/vps/public_html/index.html "https://raw.githubusercontent.com/Debbyzeus/aws/main/lain2/index.html"
 
 # Setting template's correct name,IP address and nginx Port Page Openvpn
 sed -i "s|NGINXPORT|$Index_port|g" /home/vps/public_html/index.html
 sed -i "s|IP-ADDRESS|$IPADDR|g" /home/vps/public_html/index.html
 
 # mkdir -p /home/vps/public_html
-# echo "<pre>Setup Mod Updated By Prince@syapik96</pre>" > /home/vps/public_html/index.html
+# echo "<pre>Setup Mod Updated By Debbyzeus</pre>" > /home/vps/public_html/index.html
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/${GitUser}/aws/main/vps.conf"
 # openport 81 for page /home/vps/public_html/index.html
 sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 81 -j ACCEPT
